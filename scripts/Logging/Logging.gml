@@ -1,0 +1,13 @@
+function log_debug() {
+	var _str = "";
+
+	for (var _i = 0; _i < argument_count; _i++) {
+	    _str += string(argument[_i]);
+	}
+	
+	show_debug_message(_str);
+}
+
+function log_time(_prefix, _time) {
+	log_debug(_prefix, " took: ", _time, "ms or ", (_time / 1000000), " seconds");
+}
