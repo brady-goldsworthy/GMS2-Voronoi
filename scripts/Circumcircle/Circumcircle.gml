@@ -14,5 +14,9 @@ function Circumcircle(_x, _y, _r) constructor {
 		}
 		
 	}
+	
+	static get_circumcenter = function() {
+		return {x: x, y: y};
+	}
 
 }

@@ -6,6 +6,13 @@ for (var _i = 0; _i < ds_list_size(triangle_list); _i++) {
 	_triangle.draw();
 }
 
+for (var _i = 0; _i < ds_list_size(polygons); _i++) {
+	var _polygon = polygons[| _i];
+	_polygon.draw();
+}
+
+
+
 
 #region Debug text
 
@@ -14,6 +21,6 @@ draw_text(10, 40, "Toggle delauney points: f1");
 draw_text(10, 50, "Toggle delauney lines: f2");
 draw_text(10, 60, "Toggle circumcircle: f3");
 draw_text(10, 70, "Toggle circumcenter: f4");
-draw_text(10, 80, "Toggle circumcenter lines: f5");
+draw_text(10, 80, "Toggle polygons: f5");
 
 #endregion

@@ -42,4 +42,4 @@ if keyboard_check_pressed(vk_f1) draw_delauney_points = !draw_delauney_points;
 if keyboard_check_pressed(vk_f2) draw_delauney_lines = !draw_delauney_lines;
 if keyboard_check_pressed(vk_f3) draw_circumcircle = !draw_circumcircle;
 if keyboard_check_pressed(vk_f4) draw_circumcenter = !draw_circumcenter;
-if keyboard_check_pressed(vk_f5) draw_circumcenter_lines = !draw_circumcenter_lines;
+if keyboard_check_pressed(vk_f5) draw_polygons = !draw_polygons;
