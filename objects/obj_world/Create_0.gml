@@ -2,7 +2,7 @@
 
 randomize();
 
-draw_delauney_points = true;
+draw_delauney_points = false;
 draw_delauney_lines = false;
 draw_circumcircle = false;
 draw_circumcenter = false;
@@ -22,7 +22,6 @@ world_h = world_grid_h * TILESIZE;
 
 #macro WORLD_W obj_world.world_w
 #macro WORLD_H obj_world.world_h
-
 
 gen_step = 0;
 
@@ -52,29 +51,29 @@ point_list = ds_list_create();
 poisson_points = poisson_sample(room_width, room_height, 16, 16);
 //poisson_points = poisson_sample(room_width, room_height, 32,32);
 //poisson_points = poisson_sample(room_width, room_height, 128, 128);
-for (var _i = 0; _i < ds_grid_width(poisson_points); _i++) {
-	for (var _j = 0; _j < ds_grid_height(poisson_points); _j++) {
-		var _p = poisson_points[# _i, _j];
-		if is_array(_p) {
-			var _x = _p[0];	
-			var _y = _p[1];
+//for (var _i = 0; _i < ds_grid_width(poisson_points); _i++) {
+//	for (var _j = 0; _j < ds_grid_height(poisson_points); _j++) {
+//		var _p = poisson_points[# _i, _j];
+//		if is_array(_p) {
+//			var _x = _p[0];	
+//			var _y = _p[1];
 			
-			ds_list_add(point_list, _x, _y);
-		}
-	}
-}
+//			ds_list_add(point_list, _x, _y);
+//		}
+//	}
+//}
 
 
 //Generating n number of random points
-//repeat(4) {
-//	//var _x = random_range(0, WORLD_W);	
-//	//var _y = random_range(0, WORLD_H);	
-//	var _offset = 50;
-//	var _x = random_range(_offset, room_width - _offset);	
-//	var _y = random_range(_offset, room_height - _offset);	
+repeat(15) {
+	//var _x = random_range(0, WORLD_W);	
+	//var _y = random_range(0, WORLD_H);	
+	var _offset = 50;
+	var _x = random_range(_offset, room_width - _offset);	
+	var _y = random_range(_offset, room_height - _offset);	
 			
-//	ds_list_add(point_list, _x, _y);
-//}
+	ds_list_add(point_list, _x, _y);
+}
 
 triangulation = bowyer_watson(point_list);
 triangle_list = ds_list_create();

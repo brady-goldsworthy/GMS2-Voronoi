@@ -10,6 +10,8 @@ function Polygon(_seed) constructor {
 	edges = [];
 	num_edges = 0;
 	
+	color = make_color_rgb(irandom(255),irandom(255),irandom(255));
+	
 	static add_vertex = function(_vertex) {
 		vertices[num_vertices] = _vertex;
 		num_vertices++;
@@ -24,6 +26,17 @@ function Polygon(_seed) constructor {
 		
 		if !obj_world.draw_polygons return;
 		
+		draw_primitive_begin(pr_trianglefan);
+		
+		for (var _i = 0; _i < num_vertices; _i++) {
+			var _v = vertices[_i];
+			draw_vertex_color(_v.x, _v.y, color, 1);
+		}
+		
+		draw_primitive_end();
+		
+		//seed.draw(c_black);
+		
 		for (var _i = 0; _i < num_vertices; _i++) {
 			var _v = vertices[_i];
 			//_v.draw(c_maroon);
@@ -31,7 +44,7 @@ function Polygon(_seed) constructor {
 		
 		for (var _j = 0; _j < num_edges; _j++) {
 			var _e = edges[_j];
-			_e.draw(c_white);
+			//_e.draw(c_white);
 		}
 	}
 	
