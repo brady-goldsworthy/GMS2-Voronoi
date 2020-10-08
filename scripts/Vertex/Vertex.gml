@@ -7,6 +7,8 @@ function Vertex(_x, _y) constructor {
 	edges = [];
 	num_edges = 0;
 	
+	polygon = undefined;
+	
 	static draw = function(_c) {
 		draw_circle_color(x, y, 3, _c, _c, false);	
 	}
@@ -17,6 +19,32 @@ function Vertex(_x, _y) constructor {
 	
 	static get_vertex_lookup_key = function() {
 		return string(x) + "," + string(y);	
+	}
+	
+	static clean_edges = function() {
+		for (var _i = 0; _i < num_edges; _i++) {
+			//Compare this vertex to both vertices of the edge
+			//Check for junk vertices and remove them
+			
+			var _edge = edges[_i];
+			
+			//Does this vertex share a coordinate
+			if _edge.v1.is_equal(self) {
+				//Is this the exact same vertex or a junk one
+				if _edge.v1 != self {
+					//If not replace the junk vertex with this one
+					_edge.v1 = self;	
+				}
+			}
+			
+			if _edge.v2.is_equal(self) {
+				//Is this the exact same vertex or a junk one
+				if _edge.v2 != self {
+					//If not replace the junk vertex with this one
+					_edge.v2 = self;	
+				}
+			}
+		}
 	}
 }
 

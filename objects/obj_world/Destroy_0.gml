@@ -1,4 +1,4 @@
-///@description 
+///@description Cleanup
 
 //Triangles
 ds_list_destroy(triangulation);

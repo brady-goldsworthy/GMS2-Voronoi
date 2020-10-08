@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "array_sort_momental",
-    "path": "folders/Scripts/array_sort_momental.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "gnome_sort",
+  "name": "load_tiles_from_image",
   "tags": [],
   "resourceType": "GMScript",
 }
