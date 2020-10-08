@@ -1,3 +1,3 @@
 # GMS2-Voronoi
 
-An unfinished implementation of delaunay triangulation and voronoi polygons in GMS2.
+A quick-and-dirty, unoptimized implementation of delaunay triangulation and voronoi polygons in GMS2.
