@@ -15,13 +15,10 @@ function fill_world_grid_from_image(_spr, _w, _h, _grid) {
 	// this is an example for a single pixel, you can of course loop all pixels, or access only specific ones!
 	// Pixel coordinates [x,y] start at [0,0] and should not exceed [_w-1,_h-1]
 
-	for (var _x = 0; _x < _w; _x++) {
-		for (var _y = 0; _y < _h; _y++) {
+	for (var _x = (TILESIZE div 2); _x < _w; _x+=(TILESIZE)) {
+		for (var _y = (TILESIZE div 2); _y < _h; _y+=TILESIZE) {
 			
-			var _cx = get_world_cell_center_x(_x);
-			var _cy = get_world_cell_center_y(_y);
-			
-			pixel = buffer_peek(_buff, 4 * (_cx + _cy * _w), buffer_u32);	// extracts info in ABGR Format
+			pixel = buffer_peek(_buff, 4 * (_x + _y * _w), buffer_u32);	// extracts info in ABGR Format
 			a = (pixel >> 24) & $ff;	// Alpha [0-255]	
 			r = pixel & $ff;			// Red [0-255]	
 			g = (pixel >> 8) & $ff;		// Green [0-255]	
