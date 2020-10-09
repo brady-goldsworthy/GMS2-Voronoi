@@ -12,3 +12,6 @@ ds_map_destroy(vertex_to_edge_lookup);
 //Edges
 ds_list_destroy(edges);
 ds_map_destroy(edge_lookup);
+
+//World Grid
+ds_grid_destroy(world_grid);

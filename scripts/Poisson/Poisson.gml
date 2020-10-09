@@ -1,6 +1,33 @@
-function poisson_sample(_w, _h, _r1, _r2) {
-	// var _r = (_r2 + _r1) div 2;
-	var _r = _r2;
+function generate_poisson_coords(_w, _h, _r) {
+	
+	var _start_time = get_timer();
+	
+	//Creates a poisson sample grid
+	//Loops through it and returns a list of coords
+	var _poisson_grid = poisson_sample(_w, _h, _r);
+	
+	var _points = ds_list_create();
+	for (var _i = 0; _i < ds_grid_width(_poisson_grid); _i++) {
+		for (var _j = 0; _j < ds_grid_height(_poisson_grid); _j++) {
+			var _p = _poisson_grid[# _i, _j];
+			if is_array(_p) {
+				var _x = _p[0];	
+				var _y = _p[1];
+			
+				ds_list_add(_points, _x, _y);
+			}
+		}
+	}
+	
+	ds_grid_destroy(_poisson_grid);
+	
+	var _end_time = get_timer();
+	log_time("Generating Poisson points", _end_time - _start_time);
+	
+	return _points;
+}
+
+function poisson_sample(_w, _h, _r) {
 	var _k = 10;
 	var _cellW = _r/sqrt(2);
 
@@ -24,7 +51,6 @@ function poisson_sample(_w, _h, _r1, _r2) {
 	    var _found = false;
 	    for (var _n = 0; _n < _k; _n++) {
 			
-			_r = random_range(_r1, _r2);
 	        var _angle = random(360);
 	        var _dist = random_range(_r, _r*2);
 	        _x = _pos[0] + lengthdir_x(_dist, _angle);

@@ -7,8 +7,8 @@ function get_world_cell_center_y(_grid_y) {
 }
 
 function fill_tilemap() {
-	for (var _i = 0; _i < WORLD_GRID_W; _i++) {
-		for (var _j = 0; _j < WORLD_GRID_H; _j++) {
+	for (var _i = 0; _i < WORLD_W; _i++) {
+		for (var _j = 0; _j < WORLD_H; _j++) {
 		
 			var _cell = world_grid[# _i, _j];
 			

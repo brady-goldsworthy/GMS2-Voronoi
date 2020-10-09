@@ -33,6 +33,8 @@
 /// GMLscripts.com/license
 function bowyer_watson() {
 
+var _start_time = get_timer();
+
 var _x1, _y1, _x2, _y2, _x3, _y3, _x4, _y4, _d;
 var circumcenter_x, circumcenter_y, circumradius;
 
@@ -268,6 +270,9 @@ while(!ds_list_empty(badTris)){
 //cleanup
 ds_list_destroy(polygonHole);
 ds_list_destroy(badTris);
+
+var _end_time = get_timer();
+log_time("Delauney triangulation", _end_time - _start_time);
 
 return triangulation;
 

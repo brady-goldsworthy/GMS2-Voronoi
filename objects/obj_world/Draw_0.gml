@@ -17,6 +17,8 @@ if !sprite_exists(spr_voronoi) {
 	surface_reset_target();
 	
 	spr_voronoi = sprite_create_from_surface(surf_voronoi, 0, 0, WORLD_W, WORLD_H, false, false, 0, 0);
+	
+	surface_free(surf_voronoi);
 }
 else {
 	if draw_polygons {
@@ -24,8 +26,8 @@ else {
 	}
 }
 
-for (var _i = 0; _i < ds_list_size(triangle_list); _i++) {
-	var _triangle = triangle_list[| _i];
+for (var _i = 0; _i < ds_list_size(triangles); _i++) {
+	var _triangle = triangles[| _i];
 	_triangle.draw();
 }
 

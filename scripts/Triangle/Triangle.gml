@@ -30,3 +30,5 @@ function Triangle(_v1, _v2, _v3, _c_circle) constructor {
 		
 	}
 }
+
+

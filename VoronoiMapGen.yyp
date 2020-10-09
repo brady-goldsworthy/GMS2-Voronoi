@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"spr_seed","path":"sprites/spr_seed/spr_seed.yy",},"order":0,},
     {"id":{"name":"spr_tile_voronoi","path":"sprites/spr_tile_voronoi/spr_tile_voronoi.yy",},"order":1,},
+    {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":13,},
     {"id":{"name":"Triangle","path":"scripts/Triangle/Triangle.yy",},"order":7,},
     {"id":{"name":"WorldUtil","path":"scripts/WorldUtil/WorldUtil.yy",},"order":0,},
     {"id":{"name":"obj_seed","path":"objects/obj_seed/obj_seed.yy",},"order":1,},

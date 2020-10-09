@@ -3,9 +3,13 @@
 if !layer_exists(tile_layer) and sprite_exists(spr_voronoi) {
 	init_tilemap();
 	
-	fill_world_grid_from_image(spr_voronoi, WORLD_GRID_W, WORLD_GRID_H, world_grid);
+	fill_world_grid_from_image(spr_voronoi, WORLD_W, WORLD_H, world_grid);
 	
 	fill_tilemap();
+	
+	view_enabled = true;
+	view_visible[0] = true;
+	camera_set_view_size(view_camera[0], WORLD_W * TILESIZE, WORLD_H * TILESIZE);
 }
 
 #region Debug controls

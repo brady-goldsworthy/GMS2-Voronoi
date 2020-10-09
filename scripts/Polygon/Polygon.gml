@@ -23,6 +23,9 @@ function Polygon(_seed) constructor {
 	
 	ocean = true;
 	biome = BIOME.OCEAN;
+	landmass_fill = false;
+	
+	color = make_color_rgb(irandom(255),irandom(255),irandom(255));
 	
 	static add_vertex = function(_vertex) {
 		vertices[num_vertices] = _vertex;
@@ -50,7 +53,7 @@ function Polygon(_seed) constructor {
 		for (var _i = 0; _i < num_polygons; _i++) {
 			var _p = adj_polygons[_i];
 			
-			if !is_undefined(_p) {
+			if !is_undefined(_p) and !_p.landmass_fill {
 				_p.fill_adjacent(_n - 1, _f);
 			}
 		}
@@ -68,6 +71,8 @@ function Polygon(_seed) constructor {
 			case BIOME.DESERT: _c = global.c_desert; break;	
 			case BIOME.VOLCANO: _c = global.c_volcano; break;	
 		}
+		
+		//_c = color;
 		
 		draw_primitive_begin(pr_trianglefan);
 		
@@ -87,11 +92,13 @@ function Polygon(_seed) constructor {
 		
 		for (var _j = 0; _j < num_edges; _j++) {
 			var _e = edges[_j];
-			_e.draw(c_black);
+			//_e.draw(c_black);
 		}
 	}
 	
 	static check_special_pos = function() {
+		
+		//Not currently functional
 		
 		var _polys = obj_world.special_polygons;
 		
@@ -153,7 +160,4 @@ function Polygon(_seed) constructor {
 		}
 		
 	}
-	
-	//store_adjacent_polygons();
-	check_special_pos();
 }
